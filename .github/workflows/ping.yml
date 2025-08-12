@@ -21,4 +21,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run random request script
-        run: python random_request.py
+        run: python ../random_request.py
