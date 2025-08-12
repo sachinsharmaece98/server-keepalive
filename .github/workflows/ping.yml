@@ -1,0 +1,24 @@
+name: Random Server Pinger
+
+on:
+  workflow_dispatch: # manual run option
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run random request script
+        run: python random_request.py
